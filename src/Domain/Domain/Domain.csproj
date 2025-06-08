@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>CleanArchitectureTemplate.$(MSBuildProjectName)</AssemblyName>
+    <RootNamespace>CleanArchitectureTemplate.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\API\API.BuildingBlocks\API.BuildingBlocks.csproj" />
+    <ProjectReference Include="..\..\SharedKernels\SharedKernels.csproj" />
+    <ProjectReference Include="..\Domain.BuildingBlocks\Domain.BuildingBlocks.csproj" />
+  </ItemGroup>
+
+</Project>

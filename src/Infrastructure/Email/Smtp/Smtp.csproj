@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>CleanArchitectureTemplate.Infrastructure.Email.$(MSBuildProjectName)</AssemblyName>
+    <RootNamespace>CleanArchitectureTemplate.Infrastructure.Email.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Application\Application.BuildingBlocks\Application.BuildingBlocks.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Smtp.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

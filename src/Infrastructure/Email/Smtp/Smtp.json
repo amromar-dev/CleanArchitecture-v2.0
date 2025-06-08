@@ -1,0 +1,8 @@
+{
+  "EmailSmtpHost": "",
+  "EmailSmtpPort": "",
+  "EmailAddressFrom": "",
+  "EmailFromPassword": "",
+  "IgnoreSslErrors": false,
+  "EnableSSL": true
+}

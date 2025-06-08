@@ -1,0 +1,5 @@
+{
+  "BaseAddress": "https://labondemand.com/api/v3/",
+  "Key": "719e6573-a726-4424-8bd0-04399d79a222",
+  "CallBackAPI": "Internal/AssessmentIntegrations/SkillableCallback"
+}

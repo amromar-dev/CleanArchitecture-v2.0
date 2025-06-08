@@ -1,0 +1,48 @@
+trigger:
+- main
+- Development
+- Staging
+- Production/HPE
+- Production/SGA
+
+variables:
+  buildConfiguration: 'Release'  # Set the desired build configuration here
+
+steps:
+- task: UseDotNet@2
+  inputs:
+    version: '8.x'
+    includePreviewVersions: true # Required for preview versions
+  
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet build'
+  inputs:
+    command: 'build'
+    projects: '**/API.csproj'
+    configuration: $(buildConfiguration)
+
+- script: |
+    if [ "$(Build.SourceBranch)" == "refs/heads/main" ]; then
+      echo "Setting EnvironmentName to Production for main branch"
+      echo "##vso[task.setvariable variable=EnvironmentName]Production"
+    elif [ "$(Build.SourceBranch)" == "refs/heads/Staging" ]; then
+      echo "Setting EnvironmentName to Staging for staging branch"
+      echo "##vso[task.setvariable variable=EnvironmentName]Staging"
+    else
+      echo "Setting EnvironmentName to Development for development branch"
+      echo "##vso[task.setvariable variable=EnvironmentName]Development"
+    fi
+  displayName: 'Set EnvironmentName'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: publish
+    publishWebProjects: True
+    arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory) /p:EnvironmentName=$(EnvironmentName)'
+    zipAfterPublish: True
+
+# This code takes all the files in $(Build.ArtifactStagingDirectory) and uploads them as an artifact of your build.
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: '$(Build.ArtifactStagingDirectory)' 
+    artifactName: 'SGA_Build'

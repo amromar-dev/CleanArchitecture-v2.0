@@ -1,0 +1,5 @@
+{
+  "BaseAddress": "https://apiv3.imocha.io/v3/",
+  "Key": "ypRpmWMSusjgpuSCUnXVhiNNmvJHFo",
+  "CallBackAPI": "Internal/AssessmentIntegrations/IMochaCallback"
+}

@@ -1,0 +1,5 @@
+{
+  "BaseAddress": "https://hpe-finxs-api.vercel.app/api/",
+  "AssessmentId": "XVh42f0NmvJHFo",
+  "CallBackAPI": "Internal/AssessmentIntegrations/ExtendedDiscCallback"
+}

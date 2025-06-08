@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>CleanArchitectureTemplate.$(MSBuildProjectName)</AssemblyName>
+    <RootNamespace>CleanArchitectureTemplate.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+	<AspNetCoreHostingModel>OutOfProcess</AspNetCoreHostingModel>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.4.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Application\Application.BuildingBlocks\Application.BuildingBlocks.csproj" />
+    <ProjectReference Include="..\..\Application\Application\Application.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Email\SMTP\Smtp.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\FileGenerator\HTML\HTML.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\FileGenerator\PDF\PDF.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\FileStorage\FileLocalStorage\FileLocalStorage.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Identity\IdentityServer\IdentityServer.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Persistence\EntityFramework\EntityFramework.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Scheduler\HangFire\HangFire.csproj" />
+    <ProjectReference Include="..\..\SharedKernels\SharedKernels.csproj" />
+    <ProjectReference Include="..\API.BuildingBlocks\API.BuildingBlocks.csproj" />
+  </ItemGroup>
+
+</Project>

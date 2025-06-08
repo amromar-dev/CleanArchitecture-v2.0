@@ -1,0 +1,40 @@
+﻿
+<style>
+    .header-container {
+        width: 100%;
+        font-family: 'Cairo', sans-serif;
+        font-size: 10px;
+        color: #333;
+        padding: 0 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 14px;
+        max-width: 650px;
+        margin: 0 auto;
+        height: 37px !important;
+    }
+
+    .date {
+        text-align: right;
+    }
+
+    .logo {
+        height: 20px;
+        text-align: right;
+    }
+        .logo-img {
+            max-width: 200px !important;
+            max-height: 45px !important;
+        }
+</style>
+
+<div class="header-container">
+    <div class="logo">
+        <img class="logo-img" src="{{logo}}" alt="ELGUARDS Logo" />
+        <!--<img src="{image}" alt="ELGUARDS Logo" />-->
+    </div>
+    <div class="date">
+        {{date}}
+    </div>
+</div>
